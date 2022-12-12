@@ -1,16 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
-import ItemCount from './components/ItemCount';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App bg-stone-900">
-      <Navbar/>
-      <ItemListContainer greeting={'Bienvenido a Carta Gourmet'}/>
-      <ItemCount/>
-    </div>
+    <BrowserRouter>
+      <div className="App bg-stone-900">
+        <Navbar/>
+        <Routes>
+          <Route path='/' element= { <ItemListContainer/>} />
+          <Route path='/' element= { <ItemListContainer/>} />
+          {/*<Route path='/' element= { <ItemDetailContainer/>} />*/}
+          
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
