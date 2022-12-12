@@ -43,7 +43,7 @@ const Navbar = () => {
             <a href=""><img src={logo}/></a>
         </div>
         <div>
-            <ul class="flex flex-row space-x-6 text-xl p-1">
+            <ul class="hidden lg:flex space-x-6 text-xl p-1">
                 <li class="p-2 border-b border-white hover:border-b hover:border-yellow-500"><a href="">Inicio</a></li>
                 <li class="p-2 border-b border-white hover:border-b hover:border-yellow-500"><a href="">Menu</a>
                     {/*<ul class="hidden">
