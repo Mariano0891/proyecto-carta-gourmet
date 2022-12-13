@@ -10,10 +10,9 @@ function App() {
       <div className="App bg-stone-900">
         <Navbar/>
         <Routes>
-          <Route path='/' element= { <ItemListContainer/>} />
-          <Route path='/' element= { <ItemListContainer/>} />
-          {/*<Route path='/' element= { <ItemDetailContainer/>} />*/}
-          
+          <Route path='/' element={ <ItemListContainer/>} />
+          <Route path='/category/:idCategory' element={ <ItemListContainer /> } />
+          <Route path='/item/:id' element={ <ItemDetailContainer /> } />
         </Routes>
       </div>
     </BrowserRouter>
