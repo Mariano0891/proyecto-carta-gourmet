@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import AnimacionCarga from './AnimacionCarga/AnimacionCarga'
 import ItemList from './ItemList'
 import { products } from './mock/Products'
 
@@ -32,7 +33,7 @@ const ItemListContainer = () => {
 
     <>
       { productList.length ? <ItemList productList={productList} />
-        : <p class="text-yellow-500 text-4xl p-20">Actualizando el contenido</p>
+        : <div class="flex justify-center p-28"><AnimacionCarga /></div>
       }
     </>
     

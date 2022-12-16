@@ -6,7 +6,7 @@ import CartWidget from './CartWidget'
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 h-24 shadow-md shadow-yellow-500">
+    <div className="navbar bg-yellow-50 h-24 shadow-md shadow-yellow-500">
         <div className="navbar-start">
             <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -24,8 +24,8 @@ const Navbar = () => {
         </div>
         <div>
             <ul class="hidden lg:flex space-x-6 text-xl p-1">
-                <li class="p-2 border-b border-white hover:border-b hover:border-yellow-500"><Link to={'/'}>Inicio</Link></li>
-                <li class="p-2 border-b border-white hover:border-b hover:border-yellow-500"><Link to={'/category/entradas'}>Entradas</Link>
+                <li class="p-2 border-b-2 border-transparent hover:border-yellow-500"><Link to={'/'}>Inicio</Link></li>
+                <li class="p-2 border-b-2 border-transparent hover:border-yellow-500"><Link to={'/category/entradas'}>Entradas</Link>
                     {/*<ul class="hidden">
                         <li><a href="">Menu de la semana</a></li>
                         <li><a href="">Entradas / Conservas</a></li>
@@ -34,9 +34,9 @@ const Navbar = () => {
                         <li><a href="">Guarniciones</a></li>
                     </ul>*/}
                 </li>
-                <li class="p-2 border-b border-white hover:border-b hover:border-yellow-500"><Link to={'/category/empanadas'}>Empanadas</Link></li>
-                <li class="p-2 border-b border-white hover:border-b hover:border-yellow-500"><Link to={'/category/carnes'}>Carnes</Link></li>
-                <li class="p-2 border-b border-white hover:border-b hover:border-yellow-500"><Link to={'/category/guarniciones'}>Guarniciones</Link></li>
+                <li class="p-2 border-b-2 border-transparent hover:border-yellow-500"><Link to={'/category/empanadas'}>Empanadas</Link></li>
+                <li class="p-2 border-b-2 border-transparent hover:border-yellow-500"><Link to={'/category/carnes'}>Carnes</Link></li>
+                <li class="p-2 border-b-2 border-transparent hover:border-yellow-500"><Link to={'/category/guarniciones'}>Guarniciones</Link></li>
             </ul>
         </div>
         {/* <div className="hidden lg:flex">
