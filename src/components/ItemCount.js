@@ -20,10 +20,10 @@ const ItemCount = ({stock}) => {
   }
 
   return (
-    <div className="text-2xl m-3 p-4 border-2 border-yellow-500 w-fit">
-      <button onClick={onSub} className="px-3 bg-yellow-400 text-black rounded-full"><RiSubtractLine/></button>
-      <span className="mx-3 px-3 text-3xl">{count}</span>
-      <button onClick={onAdd} className="px-3 bg-yellow-400 text-black rounded-full"><IoMdAdd/></button>
+    <div class="text-2xl mx-1 w-56">
+      <button onClick={onSub} class="px-3 btn btn-warning text-2xl"><RiSubtractLine/></button>
+      <span class="mx-4 px-2 text-3xl">{count}</span>
+      <button onClick={onAdd} class="px-3 btn btn-warning text-2xl"><IoMdAdd/></button>
     </div>
   )
 }

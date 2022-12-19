@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 import { products } from './mock/Products'
+import AnimacionCarga from './AnimacionCarga/AnimacionCarga'
 
 const ItemDetailContainer = () => {
 
@@ -21,7 +22,7 @@ const ItemDetailContainer = () => {
     <>
       {item ? <ItemDetail name={item.name} category={item.category} description={item.description} price={item.price} stock={item.stock} image={item.image}/>
       :
-      <p class="text-yellow-500 text-4xl p-20">Actualizando el contenido</p>}
+      <div class="flex justify-center p-28"><AnimacionCarga /></div>}
     </>
   )
 }
