@@ -20,7 +20,7 @@ const ItemCount = ({stock}) => {
   }
 
   return (
-    <div class="text-2xl mx-1 w-56">
+    <div class="text-2xl m-1 w-56">
       <button onClick={onSub} class="px-3 btn btn-warning text-2xl"><RiSubtractLine/></button>
       <span class="mx-4 px-2 text-3xl">{count}</span>
       <button onClick={onAdd} class="px-3 btn btn-warning text-2xl"><IoMdAdd/></button>

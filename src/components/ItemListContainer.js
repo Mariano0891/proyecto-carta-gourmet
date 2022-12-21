@@ -33,7 +33,7 @@ const ItemListContainer = () => {
 
     <>
       { productList.length ? <ItemList productList={productList} />
-        : <div class="flex justify-center p-28"><AnimacionCarga /></div>
+        : <div class="flex justify-center py-40"><AnimacionCarga /></div>
       }
     </>
     

@@ -14,10 +14,14 @@ const ItemDetail = ({name, category, description, price, stock, image}) => {
                 <p class="text-3xl text-yellow-600">$ {price}</p>
                 <p>Stock disponible: {stock} unidades</p>
                 
-                <div class="flex flex-inline align-middle justify-center">
+                <div class="flex flex-wrap justify-center">
+                    <ItemCount stock={stock} class="my-1"/>
+                    <button className="btn btn-warning my-1">Agregar al carrito</button>
+                </div>
+                {/*<div class="flex flex-wrap align-middle justify-center space-y-4 sm:space-y-0 lg:space-y-4 xl:space-y-0">
                     <ItemCount stock={stock}/>
                     <button className="btn btn-warning">Agregar al carrito</button>
-                </div>
+    </div>*/}
             </div>
         </div>
     )
