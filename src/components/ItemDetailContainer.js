@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
   
   return (
     <>
-      {item ? <ItemDetail name={item.name} category={item.category} description={item.description} price={item.price} stock={item.stock} image={item.image}/>
+      {item ? <ItemDetail item={item}/>
       :
       <div class="flex justify-center py-40"><AnimacionCarga /></div>}
     </>
