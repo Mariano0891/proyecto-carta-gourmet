@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { CartContext } from './context/CartContext'
 import ItemCount from './ItemCount'
 
@@ -29,11 +30,16 @@ const ItemDetail = ({item}) => {
                 <p class="text-3xl text-yellow-600">$ {item.price}</p>
                 <p>Stock disponible: {item.stock} unidades</p>
                 { !itemAdded ?
-                    <ItemCount stock={item.stock} onAdd={handleAddToCart}/>
+                    <div>
+                        <ItemCount stock={item.stock} onAdd={handleAddToCart}/>
+                        <div class="flex flex-wrap justify-center m-1">
+                           <Link to={`/category/${item.category}`}><button className="btn btn-warning">Volver</button></Link>
+                        </div>
+                    </div>
                     :
                     <div class="flex flex-wrap justify-center">
-                        <button className="btn btn-warning m-1">Continuar comprando</button>
-                        <button className="btn btn-warning m-1">Finalizar compra</button>
+                        <Link to={`/category/${item.category}`}><button className="btn btn-warning m-1">Seguir comprando</button></Link>
+                        <Link to={`/cart`}><button className="btn btn-warning m-1">Finalizar compra</button></Link>
                     </div>
                 }
             </div>

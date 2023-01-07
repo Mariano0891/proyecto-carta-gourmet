@@ -7,13 +7,13 @@ const ItemCount = ({stock, onAdd}) => {
 
   const [count, setCount] = useState (1)
 
-  const onInc = () => {
+  const onIncrease = () => {
     if (count < stock) {
       setCount (count + 1 )
     }
   }
 
-  const onSub = () => {
+  const onDecrease = () => {
     if (count > 1) {
       setCount (count - 1 )
     }
@@ -22,9 +22,9 @@ const ItemCount = ({stock, onAdd}) => {
   return (
     <div class="flex flex-wrap justify-center">
       <div class="text-2xl m-1 w-56">
-        <button onClick={onSub} class="px-3 btn btn-warning text-2xl"><RiSubtractLine/></button>
-        <span class="mx-4 px-2 text-3xl">{count}</span>
-        <button onClick={onInc} class="px-3 btn btn-warning text-2xl"><IoMdAdd/></button>
+        <button onClick={onDecrease} class="px-3 btn btn-warning text-xl"><RiSubtractLine/></button>
+        <span class="mx-4 px-2 text-2xl">{count}</span>
+        <button onClick={onIncrease} class="px-3 btn btn-warning text-xl"><IoMdAdd/></button>
       </div>
       <button onClick={() => onAdd(count)} className="btn btn-warning my-1">Agregar al carrito</button>
     </div>

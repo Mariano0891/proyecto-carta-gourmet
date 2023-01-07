@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { GiMeal } from 'react-icons/gi'
+import { Link } from 'react-router-dom'
 import { CartContext } from './context/CartContext'
 
 const CartWidget = () => {
@@ -18,8 +19,8 @@ const CartWidget = () => {
         <div className="card-body">
           <span className="font-bold text-lg">{ totalCartQuantity() } Productos</span>
           <span className="text-info text-yellow-600 font-semibold">Subtotal: ${totalCartAmount()}</span>
-          <div className="card-actions">
-            <button className="btn btn-warning btn-block">View cart</button>
+          <div className="card-actions flex justify-center">
+            <Link to={`/cart`}><button className="btn btn-warning btn-block">Ir al Carrito</button></Link>
           </div>
         </div>
       </div>
