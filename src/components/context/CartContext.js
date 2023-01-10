@@ -52,6 +52,11 @@ export const CartContextProvider = ({children}) => {
         setCart(newCart)
     }
 
+    const stockLeft = (id) => {
+        const selectedItem = cart.filter(item => item.id === id)
+        return ([selectedItem.stock - selectedItem.quantity])
+    }
+
     return (
         <CartContext.Provider value={{
             cart,
@@ -60,6 +65,7 @@ export const CartContextProvider = ({children}) => {
             totalCartAmount,
             emptyCart,
             deleteItemById,
+            stockLeft,
         }}>
             {children}
         </CartContext.Provider>

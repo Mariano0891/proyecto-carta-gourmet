@@ -44,16 +44,16 @@ const CartView = () => {
                         </div>
                     </div>
                 ))}
-                <div class="w-4/5 mx-auto justify-end flex m-1">
-                    <div class="w-2/5 h-14 flex relative bg-yellow-500 items-center justify-evenly font-semibold">
+                <div class="w-4/5 mx-auto justify-center flex m-2">
+                    <div class="w-3/5 h-14 flex relative bg-yellow-500 items-center justify-evenly font-semibold text-xl">
                         <h3>Total compra:</h3>
                         <h3>$ {totalCartAmount()}</h3>
                     </div>            
                 </div>
-                <div class="w-4/5 mx-auto justify-end flex m-1">
-                    <div class="w-2/5 h-14 flex relative items-center justify-evenly text-slate-50 font-semibold">
-                        <button onClick={() => emptyCart()} class="btn btn-warning w-48">Vaciar carrito</button>
-                        <Link to='/checkout'><button class="btn btn-warning w-48">Finalizar Compra</button></Link>
+                <div class="w-4/5 mx-auto flex justify-center m-2">
+                    <div class="w-3/5 h-14 flex relative items-center justify-evenly text-slate-50 font-semibold">
+                        <button onClick={() => emptyCart()} class="btn btn-warning w-44">Vaciar carrito</button>
+                        <Link to='/checkout'><button class="btn btn-warning w-44">Finalizar Compra</button></Link>
                     </div>            
                 </div>
             </div>
