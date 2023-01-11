@@ -11,7 +11,7 @@ const CartView = () => {
     deleteItemById (id)
   }
   return (
-    <div class="flex flex-col m-10">
+    <div class="flex flex-col m-4">
         {cart.length > 0 ? (
             <div>
                 <h2 class="text-yellow-600 text-4xl m-2 font-semibold">Tu compra</h2>

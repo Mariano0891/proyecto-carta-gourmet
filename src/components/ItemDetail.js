@@ -17,8 +17,7 @@ const ItemDetail = ({item}) => {
         setItemAdded (true)
         setQuantity (quantity)
      }
-    console.log (cart)
-    console.log ([quantity])
+     
     
     return (
         <div className="card lg:card-side bg-gradient-to-r from-yellow-300 to-yellow-50 shadow-xl m-10">
