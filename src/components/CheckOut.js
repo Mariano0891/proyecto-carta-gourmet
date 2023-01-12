@@ -10,13 +10,13 @@ const CheckOut = () => {
 
     const [confirmationAlert, setConfirmationAlert] = useState(false)
 
-    const [user, setUser] = useState()
+    //const [user, setUser] = useState({})
 
-    const [orderId, setOrderId] = useState()
+    //const [orderId, setOrderId] = useState()
 
-    const makeOrder = () => {
+    const makeOrder = (values) => {
         const order = {
-            buyer: {user},
+            buyer: values,
             items: cart,
             total: totalCartAmount(),
         }
@@ -24,11 +24,11 @@ const CheckOut = () => {
         saveOrder( order )
     }
 
-    const saveOrder = ( order ) => {
+    const saveOrder = async( order ) => {
         const db =getFirestore()
-        const ordersCollection = collection(db, "orders")
-        addDoc(ordersCollection, order).then(({ id }) => setOrderId(id))
-        console.log("Nueva orden: ", {orderId})
+        const ordersCollection = collection(db, 'orders')
+        const {id} =await addDoc(ordersCollection, order)
+        console.log("Nueva orden: ", id)
     }
 
   return (
@@ -78,11 +78,11 @@ const CheckOut = () => {
                 return errors
             }}
             onSubmit ={(values, {resetForm}) => {
-                resetForm()
-                setUser(values)
-                makeOrder()
-                console.log({user})
+                console.log(values)
+                makeOrder(values)
                 setConfirmationAlert (true)
+                resetForm()
+                emptyCart()
                 setTimeout(() => setConfirmationAlert(false), 2000)
             }}
         >
