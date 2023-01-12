@@ -7,6 +7,7 @@ import { CartContextProvider } from './components/context/CartContext';
 import CartView from './components/CartView';
 import Footer from './components/Footer';
 import CheckOut from './components/CheckOut';
+import ConfirmationMessage from './components/ConfirmationMessage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path='/item/:id' element={ <ItemDetailContainer /> } />
             <Route path='/cart' element={ <CartView /> } />
             <Route path='/checkout' element={ <CheckOut /> } />
+            <Route path='/confirmation' element={ <ConfirmationMessage /> } />
           </Routes>
           <Footer/>
         </div>

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { CartContext } from './context/CartContext'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
+import ConfirmationMessage from './ConfirmationMessage'
 
 
 const CheckOut = () => {
@@ -32,7 +33,7 @@ const CheckOut = () => {
     }
 
   return (
-    <div class="text-yellow-600">
+    <div>
         <Formik
             initialValues={{
                 name: '',
@@ -58,19 +59,19 @@ const CheckOut = () => {
                 }
                 // Telephone validation
                 if (!values.telephone){
-                    errors.telephone = 'Por favor ingresa tu numero de telefono'
+                    errors.telephone = 'Por favor ingresa tu número de teléfono'
                 } else if(!/^\d{7,14}$/.test(values.telephone)){
-                    errors.telephone = 'Ingrese su numero sin espacios, con el codigo de area sin 0 y sin el prefijo 15'
+                    errors.telephone = 'Ingresa tu número sin espacios, con el código de área sin 0 y sin el prefijo 15'
                 }
                 // Mail validation
                 if (!values.mail){
-                    errors.mail = 'Por favor ingresa tu direccion de correo'
+                    errors.mail = 'Por favor ingresa tu dirección de correo'
                 } else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.mail)){
-                    errors.mail = 'Ingresa una direccion de correo valida'
+                    errors.mail = 'Ingresa una dirección de correo valida'
                 }
                 // Mail confirmation validation
                 if (!values.mailConfirmation){
-                    errors.mailConfirmation = 'Por favor repite tu direccion de correo'
+                    errors.mailConfirmation = 'Por favor repite tu dirección de correo'
                 } else if (values.mail !== values.mailConfirmation){
                     errors.mailConfirmation = 'Los correos ingresados no coinciden'
                 }
@@ -83,11 +84,11 @@ const CheckOut = () => {
                 setConfirmationAlert (true)
                 resetForm()
                 emptyCart()
-                setTimeout(() => setConfirmationAlert(false), 2000)
+                //setTimeout(() => setConfirmationAlert(false), 2000)
             }}
         >
             {({errors}) => (
-                <Form class="bg-yellow-300 w-2/5 m-6 mx-auto">
+                <Form class="bg-yellow-300 w-2/5 m-6 mx-auto relative">
                     <div>
                         <Field 
                             type="text" 
@@ -117,7 +118,7 @@ const CheckOut = () => {
                             type="text" 
                             id="telephone" 
                             name="telephone" 
-                            placeholder="Telefono celular" 
+                            placeholder="Teléfono celular" 
                             class="bg-yellow-100 text-xl w-4/5 h-14 p-2 m-4"
                         />
                         <ErrorMessage name="telephone" component={() => (
@@ -150,7 +151,15 @@ const CheckOut = () => {
                         )} />
                     </div>
                     <button type="submit" class="btn btn-warning m-4">Confirmar Pedido</button>
-                    {confirmationAlert && <p class="text-xl font-semibold text-green-700">El formulario se envio con exito</p>}
+                    {confirmationAlert && 
+                        <div class="bg-slate-900 absolute inset-0 h-full w-full flex flex-col rounded-full place-content-evenly text-xl">
+                            <div>Gracias por tu compra</div>
+                            <div>Tu código de confirmación es</div>
+                            <div>
+                                <button class="btn btn-warning w-1/5">volver al inicio</button>
+                            </div>
+                        </div>
+                    }
                 </Form>
             )}
         </Formik>
