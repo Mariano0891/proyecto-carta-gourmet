@@ -42,6 +42,7 @@ const CheckOut = () => {
 
   return (
     <div>
+        <div class="text-3xl text-yellow-300 m-2">Completa tus datos para confirmar la compra</div>
         <Formik
             initialValues={{
                 name: '',
@@ -101,7 +102,7 @@ const CheckOut = () => {
                             id="name" 
                             name="name" 
                             placeholder="Nombre" 
-                            class="bg-yellow-100 text-xl w-4/5 h-14 p-2 my-4"
+                            class="bg-yellow-100 text-xl w-4/5 h-12 p-2 my-4"
                         />
                         <ErrorMessage name="name" component={() => (
                             <div class="text-red-500 text-xs w-4/5 mt-[-14px] mx-auto flex font-semibold">{errors.name}</div>
@@ -113,7 +114,7 @@ const CheckOut = () => {
                             id="surname" 
                             name="surname" 
                             placeholder="Apellido" 
-                            class="bg-yellow-100 text-xl w-4/5 h-14 p-2 m-4"    
+                            class="bg-yellow-100 text-xl w-4/5 h-12 p-2 m-4"    
                         />
                         <ErrorMessage name="surname" component={() => (
                             <div class="text-red-500 text-xs w-4/5 mt-[-14px] mx-auto flex font-semibold">{errors.surname}</div>
@@ -125,7 +126,7 @@ const CheckOut = () => {
                             id="telephone" 
                             name="telephone" 
                             placeholder="Teléfono celular" 
-                            class="bg-yellow-100 text-xl w-4/5 h-14 p-2 m-4"
+                            class="bg-yellow-100 text-xl w-4/5 h-12 p-2 m-4"
                         />
                         <ErrorMessage name="telephone" component={() => (
                             <div class="text-red-500 text-xs w-4/5 mt-[-14px] mx-auto flex font-semibold">{errors.telephone}</div>
@@ -138,7 +139,7 @@ const CheckOut = () => {
                             id="mail" 
                             name="mail" 
                             placeholder="Mail" 
-                            class="bg-yellow-100 text-xl w-4/5 h-14 p-2 m-4"
+                            class="bg-yellow-100 text-xl w-4/5 h-12 p-2 m-4"
                         />
                         <ErrorMessage name="mail" component={() => (
                             <div class="text-red-500 text-xs w-4/5 mt-[-14px] mx-auto flex font-semibold">{errors.mail}</div>
@@ -150,7 +151,7 @@ const CheckOut = () => {
                             id="mailConfirmation" 
                             name="mailConfirmation" 
                             placeholder="Confirmar Mail" 
-                            class="bg-yellow-100 text-xl w-4/5 h-14 p-2 m-4"
+                            class="bg-yellow-100 text-xl w-4/5 h-12 p-2 m-4"
                         />
                         <ErrorMessage name="mailConfirmation" component={() => (
                             <div class="text-red-500 text-xs w-4/5 mt-[-14px] mx-auto flex font-semibold">{errors.mailConfirmation}</div>
