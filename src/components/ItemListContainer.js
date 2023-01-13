@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import AnimacionCarga from './AnimacionCarga/AnimacionCarga'
 import ItemList from './ItemList'
-import { products } from './mock/Products'
 
 const ItemListContainer = () => {
 
@@ -35,11 +34,11 @@ const ItemListContainer = () => {
     }
   }, [idCategory])
 
-  {/*const getProducts = () => new Promise((resolve, reject) => {
+  /*const getProducts = () => new Promise((resolve, reject) => {
     setTimeout(()=> resolve(products), 2000)
-  })*/}
+  })*/
 
-  {/*useEffect (() => {
+  /*useEffect (() => {
 
     if (idCategory) {
       getProducts()
@@ -52,7 +51,7 @@ const ItemListContainer = () => {
     }  
 
     return () => setProductList([])
-  }, [idCategory])*/}
+  }, [idCategory])*/
 
   return (
 

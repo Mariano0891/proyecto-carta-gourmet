@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { CartContext } from './context/CartContext'
-import { addDoc, collection, getFirestore } from 'firebase/firestore'
-import ConfirmationMessage from './ConfirmationMessage'
+import { addDoc, collection, doc, getFirestore, writeBatch } from 'firebase/firestore'
+import { Link } from 'react-router-dom'
 
 
 const CheckOut = () => {
@@ -11,9 +11,7 @@ const CheckOut = () => {
 
     const [confirmationAlert, setConfirmationAlert] = useState(false)
 
-    //const [user, setUser] = useState({})
-
-    //const [orderId, setOrderId] = useState()
+    const [orderId, setOrderId] = useState()
 
     const makeOrder = (values) => {
         const order = {
@@ -30,7 +28,17 @@ const CheckOut = () => {
         const ordersCollection = collection(db, 'orders')
         const {id} =await addDoc(ordersCollection, order)
         console.log("Nueva orden: ", id)
+        console.log(orderId)
+        setOrderId(id)
     }
+    
+    //const updateStocks = ({cart}) => {
+      //  const db = getFirestore()
+      //  const batch = writeBatch(db)
+      //  setNewStock(cart.map(item => ({stock:item.stock-item.quantity})))
+      //  console.log(newStock)
+      //  batch.commit()
+    //}
 
   return (
     <div>
@@ -79,12 +87,10 @@ const CheckOut = () => {
                 return errors
             }}
             onSubmit ={(values, {resetForm}) => {
-                console.log(values)
                 makeOrder(values)
                 setConfirmationAlert (true)
                 resetForm()
                 emptyCart()
-                //setTimeout(() => setConfirmationAlert(false), 2000)
             }}
         >
             {({errors}) => (
@@ -152,11 +158,12 @@ const CheckOut = () => {
                     </div>
                     <button type="submit" class="btn btn-warning m-4">Confirmar Pedido</button>
                     {confirmationAlert && 
-                        <div class="bg-slate-900 absolute inset-0 h-full w-full flex flex-col rounded-full place-content-evenly text-xl">
-                            <div>Gracias por tu compra</div>
-                            <div>Tu código de confirmación es</div>
+                        <div class="bg-yellow-200 absolute inset-0 h-full w-full flex flex-col place-content-evenly text-2xl font-semibold">
+                            <div class="font-bold text-3xl" >Gracias por tu compra</div>
+                            <div>Tu código de confirmación es </div>
+                            <div>En breve nos comunicaremos con vos para coordinar la entrega</div>
                             <div>
-                                <button class="btn btn-warning w-1/5">volver al inicio</button>
+                                <Link to={`/`}><button class="btn btn-warning w-2/5">volver al inicio</button></Link>
                             </div>
                         </div>
                     }

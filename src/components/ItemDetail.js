@@ -27,7 +27,10 @@ const ItemDetail = ({item}) => {
                 <p class="text-xs">Categoria: <span class="underline">{item.category}</span></p>
                 <p>{item.description}</p>
                 <p class="text-3xl text-yellow-600">$ {item.price}</p>
-                <p>Stock disponible: {item.stock} unidades</p>
+                {(item.stock === 1) ?
+                    <p>Stock disponible: {item.stock} unidad</p>
+                    :
+                    <p>Stock disponible: {item.stock} unidades</p>}
                 { !itemAdded ?
                     <div>
                         <ItemCount stock={item.stock} onAdd={handleAddToCart}/>

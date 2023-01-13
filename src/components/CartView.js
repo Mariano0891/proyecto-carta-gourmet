@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const CartView = () => {
 
-  const { cart, totalCartQuantity, totalCartAmount, deleteItemById, emptyCart } = useContext(CartContext)
+  const { cart, totalCartAmount, deleteItemById, emptyCart } = useContext(CartContext)
   
   const handleDeleteItem = (id) => { 
     deleteItemById (id)
