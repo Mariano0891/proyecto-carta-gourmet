@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { CartContext } from './context/CartContext'
 import { addDoc, collection, doc, getFirestore, writeBatch } from 'firebase/firestore'
@@ -28,9 +28,14 @@ const CheckOut = () => {
         const ordersCollection = collection(db, 'orders')
         const {id} =await addDoc(ordersCollection, order)
         console.log("Nueva orden: ", id)
-        console.log(orderId)
         setOrderId(id)
+        
     }
+
+    useEffect(() => {
+      console.log(orderId)
+    }, [orderId])
+    
     
     //const updateStocks = ({cart}) => {
       //  const db = getFirestore()
@@ -161,7 +166,7 @@ const CheckOut = () => {
                     {confirmationAlert && 
                         <div class="bg-yellow-200 absolute inset-0 h-full w-full flex flex-col place-content-evenly text-2xl font-semibold">
                             <div class="font-bold text-3xl" >Gracias por tu compra</div>
-                            <div>Tu código de confirmación es </div>
+                            <div>Tu código de confirmación es <span class="font-bold text-yellow-600">{orderId}</span></div>
                             <div>En breve nos comunicaremos con vos para coordinar la entrega</div>
                             <div>
                                 <Link to={`/`}><button class="btn btn-warning w-2/5">volver al inicio</button></Link>
